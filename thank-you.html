@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+  <!-- Google Tag Manager: BELUM terpasang — lihat TRACKING.md -->
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-G9SMTY996S"></script>
   <script>
@@ -21,6 +22,10 @@
         gtag('event', 'conversion', {'send_to': 'AW-18169243507/KmdjCMKGsa8cEPPO4tdD'});
         try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
       }
+      // Event GA4: setiap tampilan halaman terima kasih (tanpa guard —
+      // ini event analitik, bukan konversi; konversi Ads tetap diguard di atas)
+      window.dataLayer.push({ event: 'thank_you_view' });
+      gtag('event', 'thank_you_view', { transport_type: 'beacon' });
     })();
   </script>
 

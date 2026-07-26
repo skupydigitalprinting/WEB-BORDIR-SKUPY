@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+  <!-- Google Tag Manager: BELUM terpasang — butuh container ID (GTM-XXXXXXX)
+       yang dibuat di tagmanager.google.com. Setelah punya:
+       1) tempel snippet GTM resmi di sini, 2) set SEND_DIRECT=false pada
+       skrip Skupy Tracking di akhir <body>. Detail: TRACKING.md -->
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-G9SMTY996S"></script>
   <script>
@@ -1212,7 +1217,11 @@
             </li>
             <li class="flex items-center gap-2">
               <i class="fab fa-whatsapp text-gold flex-shrink-0"></i>
-              <a href="https://wa.me/6281117001155" class="hover:text-gold">0811-1700-1155</a>
+              <a href="https://wa.me/6281117001155" class="hover:text-gold">WhatsApp 0811-1700-1155</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-phone text-gold flex-shrink-0"></i>
+              <a href="tel:+6281117001155" class="hover:text-gold">Telepon 0811-1700-1155</a>
             </li>
             <li class="flex items-center gap-2">
               <i class="fab fa-instagram text-gold flex-shrink-0"></i>
@@ -1373,6 +1382,119 @@
       lbClose.addEventListener('click', closeLb);
       lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
+    })();
+  </script>
+
+  <!-- ══ Skupy Tracking v1 — lapisan event terpusat ══
+       Semua event dikirim ke dataLayer (format GTM) DAN langsung ke GA4/Ads
+       via gtag selama SEND_DIRECT=true. Dokumentasi lengkap: TRACKING.md -->
+  <script>
+    (function () {
+      'use strict';
+      var SEND_DIRECT = true; // ubah ke false SETELAH GTM aktif, agar event tidak dobel
+
+      window.dataLayer = window.dataLayer || [];
+
+      function track(name, params) {
+        params = params || {};
+        var payload = { event: name };
+        for (var k in params) {
+          if (Object.prototype.hasOwnProperty.call(params, k)) payload[k] = params[k];
+        }
+        window.dataLayer.push(payload); // dibaca GTM (kelak); diabaikan gtag.js
+        if (SEND_DIRECT && typeof window.gtag === 'function') {
+          params.transport_type = 'beacon';
+          window.gtag('event', name, params);
+        }
+      }
+
+      function sectionOf(el) {
+        if (el.closest('#navbar') || el.closest('#mobile-menu')) return 'navbar';
+        if (el.closest('#mobile-cta')) return 'mobile_cta';
+        if (el.id === 'float-wa' || el.closest('#float-wa')) return 'float_wa';
+        var sec = el.closest('section[id], footer[id]');
+        return sec ? sec.id : 'lainnya';
+      }
+
+      function textOf(el) {
+        return (el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60);
+      }
+
+      // ── Satu listener klik terdelegasi untuk semua event klik ──
+      document.addEventListener('click', function (e) {
+        // Portfolio: galeri & workshop (bukan <a>)
+        var item = e.target.closest('#galeri .gallery-item, .workshop-item');
+        if (item) {
+          var img = item.querySelector('img');
+          track('portfolio_click', {
+            item_name: img && img.alt ? img.alt.slice(0, 80) : 'tanpa-nama',
+            cta_location: sectionOf(item)
+          });
+          return;
+        }
+
+        // FAQ: hanya saat MEMBUKA (aria-expanded masih false ketika diklik)
+        var faq = e.target.closest('.faq-trigger');
+        if (faq) {
+          if (faq.getAttribute('aria-expanded') === 'false') {
+            track('faq_expand', { faq_question: textOf(faq).slice(0, 80) });
+          }
+          return;
+        }
+
+        var a = e.target.closest('a');
+        if (!a) return;
+        var href = a.getAttribute('href') || '';
+        var loc = sectionOf(a);
+        var text = textOf(a) || 'ikon';
+
+        if (href.indexOf('wa.me') !== -1) {
+          track('whatsapp_click', { cta_location: loc, cta_text: text });
+          if (loc === 'navbar' || loc === 'mobile_cta') {
+            track('nav_cta_click', { cta_location: loc });
+          }
+        }
+        if (href.indexOf('tel:') === 0) {
+          track('phone_click', { cta_location: loc });
+        }
+        if (loc === 'hero' && (href.indexOf('wa.me') !== -1 || href === '#galeri')) {
+          track('hero_cta_click', { cta_text: text });
+        }
+        if (loc === 'kontak' && (href.indexOf('wa.me') !== -1 || href.indexOf('tel:') === 0 || href.indexOf('instagram.com') !== -1)) {
+          track('contact_button_click', { cta_text: text, link_url: href.slice(0, 100) });
+        }
+      }, { capture: true, passive: true }); // capture: baca aria-expanded SEBELUM handler FAQ situs mengubahnya
+
+      // ── Scroll depth 25/50/75/90, sekali per muatan halaman ──
+      var marks = [25, 50, 75, 90];
+      var fired = {};
+      var ticking = false;
+      function measure() {
+        ticking = false;
+        var doc = document.documentElement;
+        var max = doc.scrollHeight - window.innerHeight;
+        if (max <= 0) return;
+        var pct = (window.scrollY / max) * 100;
+        // jaring pengaman: bila sudah di dasar halaman, hitung 100% —
+        // scrollHeight bisa sesaat lebih besar dari jarak scroll nyata saat layout masih bergeser
+        if (doc.scrollHeight - (window.scrollY + window.innerHeight) < 120) pct = 100;
+        for (var i = 0; i < marks.length; i++) {
+          if (!fired[marks[i]] && pct >= marks[i]) {
+            fired[marks[i]] = true;
+            track('scroll_depth', { depth_percent: marks[i] });
+          }
+        }
+        if (fired[90]) { // cegah listener menggantung
+          window.removeEventListener('scroll', onScroll);
+          window.removeEventListener('scrollend', measure);
+        }
+      }
+      function onScroll() {
+        if (!ticking) { ticking = true; requestAnimationFrame(measure); }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      // scrollend menangkap posisi akhir setelah fling cepat, yang bisa lolos dari rAF
+      window.addEventListener('scrollend', measure, { passive: true });
     })();
   </script>
 
