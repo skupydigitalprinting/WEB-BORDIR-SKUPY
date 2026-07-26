@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G9SMTY996S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18169243507');
+    gtag('config', 'G-G9SMTY996S');
+  </script>
+
+  <!-- Event snippet for Kontak conversion page -->
+  <script>
+    (function () {
+      var KEY = 'skupy_conv_kontak';
+      var fired = false;
+      try { fired = sessionStorage.getItem(KEY) === '1'; } catch (e) { fired = false; }
+      if (!fired) {
+        gtag('event', 'conversion', {'send_to': 'AW-18169243507/KmdjCMKGsa8cEPPO4tdD'});
+        try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+      }
+    })();
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terima Kasih | Skupy Bordir</title>
+  <meta name="description" content="Terima kasih! Permintaan Anda telah kami terima. Tim Skupy akan segera menghubungi Anda melalui WhatsApp atau telepon." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://bordirskupy.id/thank-you.html" />
+
+  <meta property="og:title" content="Terima Kasih | Skupy Bordir" />
+  <meta property="og:description" content="Permintaan Anda telah kami terima. Tim Skupy akan segera menghubungi Anda." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bordirskupy.id/thank-you.html" />
+  <meta property="og:site_name" content="Skupy Bordir" />
+  <meta property="og:locale" content="id_ID" />
+  <meta property="og:image" content="https://bordirskupy.id/og-image.jpg" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪡</text></svg>" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            body: ['DM Sans', 'sans-serif'],
+          },
+          colors: {
+            ink: '#0a0a0a',
+            paper: '#f5f4f0',
+            gold: '#c9a84c',
+            'gold-light': '#e8c96a',
+            muted: '#6b6b6b',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --ink: #0a0a0a;
+      --paper: #f5f4f0;
+      --gold: #c9a84c;
+      --gold-light: #e8c96a;
+      --muted: #6b6b6b;
+    }
+
+    html { overflow-x: hidden; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--ink);
+      color: var(--paper);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main { overflow-x: clip; }
+
+    .glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .check-ring {
+      width: 96px; height: 96px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.35);
+      animation: ring-in 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    .check-ring i {
+      font-size: 2.5rem;
+      color: var(--gold);
+      animation: check-in 0.5s ease-out 0.25s both;
+    }
+    @keyframes ring-in { from { opacity:0; transform: scale(0.6);} to { opacity:1; transform: scale(1);} }
+    @keyframes check-in { from { opacity:0; transform: scale(0.4);} to { opacity:1; transform: scale(1);} }
+
+    .fade-up { animation: fade-up 0.7s ease-out both; }
+    .fade-up.d1 { animation-delay: 0.15s; }
+    .fade-up.d2 { animation-delay: 0.3s; }
+    .fade-up.d3 { animation-delay: 0.45s; }
+    @keyframes fade-up { from { opacity:0; transform: translateY(18px);} to { opacity:1; transform: translateY(0);} }
+
+    .btn-gold {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: 'Syne', sans-serif;
+      font-weight: 700; font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      padding: 0.85rem 1.75rem;
+      border-radius: 999px;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      white-space: nowrap;
+    }
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.4);
+    }
+
+    .btn-wa-big {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem;
+      background: #25D366;
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700; font-size: 1rem;
+      padding: 1rem 2.25rem;
+      border-radius: 999px;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      white-space: nowrap;
+    }
+    .btn-wa-big:hover {
+      background: #1fbe5a;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(37,211,102,0.35);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .check-ring, .check-ring i, .fade-up { animation: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="relative z-10 w-full py-6">
+    <div class="max-w-7xl mx-auto px-5">
+      <a href="/" class="inline-flex items-center gap-2">
+        <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;color:var(--paper);letter-spacing:0.05em;">
+          SK<span style="color:var(--gold);">U</span>PY
+        </span>
+        <span style="font-size:0.6rem;color:rgba(245,244,240,0.4);letter-spacing:0.12em;text-transform:uppercase;line-height:1;">Your Printing<br>Solution</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="relative flex-1 flex items-center justify-center px-5 py-12">
+    <div class="glow" style="width:min(420px,85vw);aspect-ratio:1;background:rgba(201,168,76,0.12);top:-120px;left:50%;transform:translateX(-50%);"></div>
+
+    <div class="relative z-10 w-full max-w-2xl text-center">
+
+      <div class="flex justify-center mb-8">
+        <div class="check-ring">
+          <i class="fas fa-check"></i>
+        </div>
+      </div>
+
+      <h1 class="fade-up font-display font-extrabold leading-tight mb-5"
+          style="font-size:clamp(1.75rem,5vw,3rem);letter-spacing:-0.01em;">
+        Terima kasih! Permintaan Anda telah kami terima.
+      </h1>
+
+      <p class="fade-up d1 text-paper/60 leading-relaxed mx-auto mb-10"
+         style="font-size:clamp(0.95rem,2.2vw,1.125rem);max-width:34rem;">
+        Tim Skupy akan segera menghubungi Anda melalui WhatsApp atau telepon.
+      </p>
+
+      <div class="fade-up d2 flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <a href="https://wa.me/6281117001155?text=Halo%20Skupy%2C%20saya%20ingin%20konsultasi%20order."
+           target="_blank" rel="noopener" class="btn-wa-big w-full sm:w-auto">
+          <i class="fab fa-whatsapp text-xl"></i>
+          Chat WhatsApp Sekarang
+        </a>
+        <a href="/" class="btn-gold w-full sm:w-auto">
+          <i class="fas fa-arrow-left"></i>
+          Kembali ke Beranda
+        </a>
+      </div>
+
+      <div class="fade-up d3 border-t border-white/10 pt-8">
+        <div class="text-paper/30 text-xs font-display font-bold tracking-widest uppercase mb-4">
+          Sambil Menunggu
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm">
+          <a href="/#galeri" class="text-paper/55 hover:text-gold transition-colors">
+            <i class="fas fa-images text-gold mr-2"></i>Lihat Galeri
+          </a>
+          <a href="/#layanan" class="text-paper/55 hover:text-gold transition-colors">
+            <i class="fas fa-layer-group text-gold mr-2"></i>Layanan Kami
+          </a>
+          <a href="/#faq" class="text-paper/55 hover:text-gold transition-colors">
+            <i class="fas fa-circle-question text-gold mr-2"></i>FAQ
+          </a>
+          <a href="https://instagram.com/skupybordir" target="_blank" rel="noopener"
+             class="text-paper/55 hover:text-gold transition-colors">
+            <i class="fab fa-instagram text-gold mr-2"></i>Instagram
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-white/5 py-8">
+    <div class="max-w-7xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-paper/35 text-xs text-center sm:text-left">
+        &copy; <span id="year">2026</span> Skupy Bordir. Your Printing Solution.
+      </p>
+      <div class="flex items-center gap-3 text-paper/35 text-xs">
+        <i class="fas fa-map-marker-alt text-gold"></i>
+        <span>Pasar Tanah Abang Blok B Lt.1 Los G No.160-161, Jakarta Pusat</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
