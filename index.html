@@ -24,7 +24,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skupy – Jasa Bordir Komputer & Sablon DTF Premium Jakarta</title>
   <meta name="description" content="Skupy adalah jasa bordir komputer, sablon DTF, printing sublim, dan jersey custom terpercaya di Jakarta. Hasil presisi, warna tajam, produksi cepat." />
-  <meta name="keywords" content="jasa bordir, bordir komputer, sablon dtf, jersey custom, printing sublim, kaos komunitas, seragam perusahaan, bordir Jakarta" />
   <meta property="og:title" content="Skupy – Bordir & Printing Premium" />
   <meta property="og:description" content="Solusi bordir komputer, sablon DTF, sublim, dan jersey custom dengan hasil detail, cepat, dan berkualitas." />
   <meta property="og:type" content="website" />
@@ -40,7 +39,10 @@
   <meta name="twitter:description" content="Solusi bordir komputer, sablon DTF, sublim, dan jersey custom dengan hasil detail, cepat, dan berkualitas." />
   <meta name="twitter:image" content="https://bordirskupy.id/og-image.jpg" />
   <link rel="canonical" href="https://bordirskupy.id/" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪡</text></svg>" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -77,29 +79,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
   <!-- Icons -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            display: ['Syne', 'sans-serif'],
-            hero: ['Bebas Neue', 'sans-serif'],
-            body: ['DM Sans', 'sans-serif'],
-          },
-          colors: {
-            ink: '#0a0a0a',
-            paper: '#f5f4f0',
-            gold: '#c9a84c',
-            'gold-light': '#e8c96a',
-            muted: '#6b6b6b',
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Tailwind: CSS hasil build statis (Play CDN dilarang untuk produksi
+       dan menyusun CSS saat runtime — memperlambat render) -->
+  <link rel="stylesheet" href="assets/styles.css" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; }
@@ -113,6 +97,23 @@
     }
 
     html { scroll-behavior: smooth; }
+
+    /* navigasi keyboard terlihat (WCAG 2.4.7) */
+    a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
 
     body {
       font-family: 'DM Sans', sans-serif;
@@ -365,7 +366,7 @@
     .btn-wa-big {
       display: inline-flex; align-items: center; gap: 0.75rem;
       background: #25D366;
-      color: white;
+      color: #08341a; /* kontras 7.7:1; putih hanya 1.98:1 */
       font-family: 'Syne', sans-serif;
       font-weight: 700; font-size: 1rem;
       padding: 1rem 2.25rem;
@@ -657,6 +658,7 @@
   </nav>
 
   <!-- ═══════════════ HERO ═══════════════ -->
+  <main>
   <section id="hero" class="relative flex items-center min-h-screen pt-24 pb-36 md:pb-24">
     <!-- Decorative blobs -->
     <div class="hero-circle" style="width:500px;height:500px;background:radial-gradient(circle,rgba(201,168,76,0.12),transparent 70%);top:-100px;right:-150px;"></div>
@@ -732,7 +734,7 @@
     </div>
 
     <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-paper/30">
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-paper/55">
       <span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;">Scroll</span>
       <div style="width:1px;height:2.5rem;background:linear-gradient(to bottom,rgba(201,168,76,0.5),transparent);"></div>
     </div>
@@ -1193,11 +1195,13 @@
          target="_blank" rel="noopener" class="btn-wa-big">
         <i class="fab fa-whatsapp text-xl"></i> Order Sekarang
       </a>
-      <p class="text-paper/30 text-xs mt-5">Respon cepat · Konsultasi gratis · Pengiriman seluruh Indonesia</p>
+      <p class="text-paper/55 text-xs mt-5">Respon cepat · Konsultasi gratis · Pengiriman seluruh Indonesia</p>
     </div>
   </section>
 
   <!-- ═══════════════ FOOTER ═══════════════ -->
+  </main>
+
   <footer id="kontak" class="bg-black py-16 border-t border-white/5">
     <div class="max-w-7xl mx-auto px-5">
       <div class="grid md:grid-cols-3 gap-10 mb-12">
@@ -1206,15 +1210,15 @@
           <div class="font-display font-extrabold text-2xl text-paper mb-3" style="letter-spacing:0.05em;">
             SK<span style="color:var(--gold);">U</span>PY
           </div>
-          <p class="text-paper/40 text-sm leading-relaxed mb-5 max-w-sm">
+          <p class="text-paper/60 text-sm leading-relaxed mb-5 max-w-sm">
             Your Printing Solution. Jasa bordir komputer, sablon DTF, printing sublim, dan jersey custom terpercaya di Jakarta.
           </p>
           <div class="flex gap-3">
-            <a href="https://wa.me/6281117001155" target="_blank" rel="noopener"
+            <a href="https://wa.me/6281117001155" target="_blank" rel="noopener" aria-label="Chat WhatsApp Skupy"
                class="social-icon rounded-full border border-white/10 flex items-center justify-center text-paper/50 hover:text-gold hover:border-gold transition-all">
               <i class="fab fa-whatsapp"></i>
             </a>
-            <a href="https://instagram.com/skupybordir" target="_blank" rel="noopener"
+            <a href="https://instagram.com/skupybordir" target="_blank" rel="noopener" aria-label="Instagram Skupy Bordir"
                class="social-icon rounded-full border border-white/10 flex items-center justify-center text-paper/50 hover:text-gold hover:border-gold transition-all">
               <i class="fab fa-instagram"></i>
             </a>
@@ -1223,7 +1227,7 @@
 
         <!-- Kontak -->
         <div>
-          <div class="text-paper/30 text-xs font-display font-bold tracking-widest uppercase mb-4">Kontak</div>
+          <div class="text-paper/55 text-xs font-display font-bold tracking-widest uppercase mb-4">Kontak</div>
           <ul class="flex flex-col gap-3 text-paper/50 text-sm">
             <li class="flex items-start gap-2">
               <i class="fas fa-map-marker-alt text-gold mt-0.5 flex-shrink-0"></i>
@@ -1251,8 +1255,8 @@
       </div>
 
       <div class="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p class="text-paper/20 text-xs">© 2025 Skupy. All rights reserved.</p>
-        <p class="text-paper/20 text-xs">Sublimasi · Sablon DTF · Konfeksi · Bordir Komputer</p>
+        <p class="text-paper/50 text-xs">© 2025 Skupy. All rights reserved.</p>
+        <p class="text-paper/50 text-xs">Sublimasi · Sablon DTF · Konfeksi · Bordir Komputer</p>
       </div>
     </div>
   </footer>
@@ -1281,11 +1285,12 @@
   <!-- ═══════════════ SCRIPTS ═══════════════ -->
   <script>
     // ── Loader ──
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('loader').classList.add('hidden');
-      }, 800);
-    });
+    // Sembunyikan begitu DOM siap (bukan menunggu seluruh resource + 800ms —
+    // itu menunda LCP tanpa manfaat). Fallback 2,5 detik untuk kondisi apa pun.
+    const hideLoader = () => document.getElementById('loader').classList.add('hidden');
+    if (document.readyState !== 'loading') { setTimeout(hideLoader, 300); }
+    else { document.addEventListener('DOMContentLoaded', () => setTimeout(hideLoader, 300)); }
+    setTimeout(hideLoader, 2500);
 
     // ── Hamburger ──
     const hamburger = document.getElementById('hamburger');

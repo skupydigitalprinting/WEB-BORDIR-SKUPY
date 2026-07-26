@@ -44,7 +44,9 @@
   <meta property="og:locale" content="id_ID" />
   <meta property="og:image" content="https://bordirskupy.id/og-image.jpg" />
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪡</text></svg>" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -54,27 +56,8 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            display: ['Syne', 'sans-serif'],
-            body: ['DM Sans', 'sans-serif'],
-          },
-          colors: {
-            ink: '#0a0a0a',
-            paper: '#f5f4f0',
-            gold: '#c9a84c',
-            'gold-light': '#e8c96a',
-            muted: '#6b6b6b',
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Tailwind: CSS hasil build statis -->
+  <link rel="stylesheet" href="assets/styles.css" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; }
@@ -152,7 +135,7 @@
     .btn-wa-big {
       display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem;
       background: #25D366;
-      color: #fff;
+      color: #08341a;
       font-family: 'Syne', sans-serif;
       font-weight: 700; font-size: 1rem;
       padding: 1rem 2.25rem;
@@ -221,7 +204,7 @@
       </div>
 
       <div class="fade-up d3 border-t border-white/10 pt-8">
-        <div class="text-paper/30 text-xs font-display font-bold tracking-widest uppercase mb-4">
+        <div class="text-paper/55 text-xs font-display font-bold tracking-widest uppercase mb-4">
           Sambil Menunggu
         </div>
         <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm">
@@ -247,10 +230,10 @@
   <!-- Footer -->
   <footer class="relative z-10 border-t border-white/5 py-8">
     <div class="max-w-7xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-paper/35 text-xs text-center sm:text-left">
+      <p class="text-paper/55 text-xs text-center sm:text-left">
         &copy; <span id="year">2026</span> Skupy Bordir. Your Printing Solution.
       </p>
-      <div class="flex items-center gap-3 text-paper/35 text-xs">
+      <div class="flex items-center gap-3 text-paper/55 text-xs">
         <i class="fas fa-map-marker-alt text-gold"></i>
         <span>Pasar Tanah Abang Blok B Lt.1 Los G No.160-161, Jakarta Pusat</span>
       </div>
